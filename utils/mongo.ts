@@ -39,7 +39,7 @@ export const connectToMongo = async () => {
       cached.promise = MongoClient.connect(MONGODB_URI).then((client) => {
         return {
           client,
-          mongo: client.db(MONGODB_DB),
+          db: client.db(MONGODB_DB),
         }
       })
     }

@@ -9,3 +9,7 @@ export const getAllListings = async (mongo: any) => {
     .limit(100)
     .toArray() as Promise<Listing[]>
 }
+
+export const getListing = async (mongo: any, listingId: string) => {
+  return mongo.collection(AIRBNB_COLLECTION_NAME).findOne({ _id: listingId })
+}

@@ -1,7 +1,16 @@
 import * as React from "react"
-import { Box, Image, Flex, Badge, Text } from "@chakra-ui/react"
+import {
+  Badge,
+  Box,
+  Flex,
+  Image,
+  LinkBox,
+  LinkOverlay,
+  Text,
+} from "@chakra-ui/react"
 import { MdStar } from "react-icons/md"
 import { Listing } from "types"
+import Link from "next/link"
 
 interface ListingCardProps {
   listing: Listing
@@ -12,7 +21,7 @@ export default function ListingCard(props: ListingCardProps) {
   console.log("listing:", listing)
 
   return (
-    <Box p="5" borderWidth="1px">
+    <LinkBox p="5" borderWidth="1px" rounded="md">
       <Image
         borderRadius="md"
         alt={listing.summary}
@@ -37,9 +46,14 @@ export default function ListingCard(props: ListingCardProps) {
           Cape Town
         </Text>
       </Flex>
-      <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
-        {listing.name}
-      </Text>
+      <Link href={`/listings/${listing._id}`} passHref>
+        <LinkOverlay>
+          <Text mt={2} fontSize="xl" fontWeight="semibold" lineHeight="short">
+            {listing.name}
+          </Text>
+        </LinkOverlay>
+      </Link>
+
       <Text mt={2}>${listing.price.$numberDecimal}/night</Text>
       {listing.number_of_reviews > 0 && (
         <Flex mt={2} align="center">
@@ -52,6 +66,6 @@ export default function ListingCard(props: ListingCardProps) {
           </Text>
         </Flex>
       )}
-    </Box>
+    </LinkBox>
   )
 }
