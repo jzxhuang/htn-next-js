@@ -2,6 +2,7 @@ import { Box, Flex, Heading, Icon } from "@chakra-ui/react"
 import type { NextPage } from "next"
 import Head from "next/head"
 import Image from "next/image"
+import NextLink from "next/link"
 import { FaGithub } from "react-icons/fa"
 
 const Home: NextPage = () => {
@@ -21,7 +22,13 @@ const Home: NextPage = () => {
         justify="center"
         align="center"
       >
-        <Heading color="blue.800">Intro to Next.js!</Heading>
+        <Heading as="h1" color="blue.800">
+          Intro to Next.js!
+        </Heading>
+
+        <Heading as="h2" size="md" mt="1rem">
+          <NextLink href="/listings">See Listings</NextLink>
+        </Heading>
       </Flex>
 
       <Flex
