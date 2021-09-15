@@ -1,5 +1,6 @@
 import type { NextPage } from "next"
 import Head from "next/head"
+import Link from "next/link"
 import styles from "../styles/Home.module.css"
 
 const Home: NextPage = () => {
@@ -15,6 +16,8 @@ const Home: NextPage = () => {
         <h1 className={styles.title}>
           Intro to <a href="https://nextjs.org">Next.js!</a>
         </h1>
+
+        <Link href="/listings">See all listings</Link>
       </main>
 
       <footer className={styles.footer}>
